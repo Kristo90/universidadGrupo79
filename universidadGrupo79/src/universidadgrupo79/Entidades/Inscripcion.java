@@ -5,24 +5,24 @@ package universidadgrupo79.Entidades;
  *
  * @author kristo
  */
-public class inscripcion {
+public class Inscripcion {
     
     private int idInscripcion;
     private Alumno alumno;
     private Materia materia;
     private double note;
 
-    public inscripcion() {
+    public Inscripcion() {
     }
 
-    public inscripcion(int idInscripcion, Alumno alumno, Materia materia, double note) {
+    public Inscripcion(int idInscripcion, Alumno alumno, Materia materia, double note) {
         this.idInscripcion = idInscripcion;
         this.alumno = alumno;
         this.materia = materia;
         this.note = note;
     }
 
-    public inscripcion(Alumno alumno, Materia materia, double note) {
+    public Inscripcion(Alumno alumno, Materia materia, double note) {
         this.alumno = alumno;
         this.materia = materia;
         this.note = note;
@@ -62,7 +62,8 @@ public class inscripcion {
 
     @Override
     public String toString() {
-        return "inscripcion{" + "idInscripcion=" + idInscripcion + ", alumno=" + alumno + ", materia=" + materia + ", note=" + note + '}';
+       String insc=idInscripcion + " " + alumno.getApellido() + ", " + alumno.getNombre() + ", " + materia.getNombre();
+       return insc;
     }
     
 }
