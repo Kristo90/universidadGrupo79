@@ -31,14 +31,16 @@ public class Pantalla extends javax.swing.JFrame {
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
+        jMenuItem2 = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
+        jMenuItem3 = new javax.swing.JMenuItem();
+        jMenuItem4 = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
         jMenu5 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setIconImages(null);
 
-        jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/alumno.png"))); // NOI18N
         jMenu1.setText("Alumno");
         jMenu1.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
 
@@ -48,21 +50,32 @@ public class Pantalla extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu1);
 
-        jMenu2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/formulario.png"))); // NOI18N
         jMenu2.setText("Materia");
         jMenu2.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+
+        jMenuItem2.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jMenuItem2.setText("Formulario de Materia");
+        jMenu2.add(jMenuItem2);
+
         jMenuBar1.add(jMenu2);
 
         jMenu3.setText("Administración");
         jMenu3.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+
+        jMenuItem3.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jMenuItem3.setText("Manejo de Inscripciones");
+        jMenu3.add(jMenuItem3);
+
+        jMenuItem4.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jMenuItem4.setText("Modificación de Notas");
+        jMenu3.add(jMenuItem4);
+
         jMenuBar1.add(jMenu3);
 
-        jMenu4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/consulta.png"))); // NOI18N
         jMenu4.setText("Consultas");
         jMenu4.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jMenuBar1.add(jMenu4);
 
-        jMenu5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/Salir.png"))); // NOI18N
         jMenu5.setText("Salir");
         jMenu5.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jMenuBar1.add(jMenu5);
@@ -77,7 +90,7 @@ public class Pantalla extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 681, Short.MAX_VALUE)
+            .addGap(0, 689, Short.MAX_VALUE)
         );
 
         pack();
@@ -126,5 +139,8 @@ public class Pantalla extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu5;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JMenuItem jMenuItem4;
     // End of variables declaration//GEN-END:variables
 }
