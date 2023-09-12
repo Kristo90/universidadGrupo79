@@ -36,11 +36,13 @@ public class Pantalla extends javax.swing.JFrame {
         jMenu5 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setIconImages(null);
 
         jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/alumno.png"))); // NOI18N
         jMenu1.setText("Alumno");
         jMenu1.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
 
+        jMenuItem1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jMenuItem1.setText("Formulario de Alumno");
         jMenu1.add(jMenuItem1);
 
@@ -52,6 +54,7 @@ public class Pantalla extends javax.swing.JFrame {
         jMenuBar1.add(jMenu2);
 
         jMenu3.setText("Administración");
+        jMenu3.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jMenuBar1.add(jMenu3);
 
         jMenu4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/consulta.png"))); // NOI18N
@@ -70,11 +73,11 @@ public class Pantalla extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 630, Short.MAX_VALUE)
+            .addGap(0, 1024, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 337, Short.MAX_VALUE)
+            .addGap(0, 681, Short.MAX_VALUE)
         );
 
         pack();
