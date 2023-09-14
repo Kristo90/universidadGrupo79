@@ -9,6 +9,8 @@ import java.sql.Date;
 import universidadgrupo79.AccesoaDatos.AlumnoData;
 import universidadgrupo79.Entidades.Alumno;
 import java.*;
+import java.time.LocalDate;
+import java.time.ZoneId;
 
 /**
  *
@@ -80,8 +82,19 @@ public class FormularioAlumno extends javax.swing.JInternalFrame {
             }
         });
 
+        jdcfechanac.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                jdcfechanacPropertyChange(evt);
+            }
+        });
+
         jrestado.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jrestado.setText("Activo");
+        jrestado.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                jrestadoStateChanged(evt);
+            }
+        });
 
         jbnuevo.setText("Nuevo");
 
@@ -98,6 +111,11 @@ public class FormularioAlumno extends javax.swing.JInternalFrame {
         });
 
         jbsalir.setText("Salir");
+        jbsalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbsalirActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -198,15 +216,42 @@ public class FormularioAlumno extends javax.swing.JInternalFrame {
 
     private void jbguardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbguardarActionPerformed
         // TODO add your handling code here:
-        // (int dni, String apellido, String nombre, LocalDate fechaNac, boolean estado
-        Alumno alu = new Alumno(Integer.parseInt(jtdocumento.getText()), jtapellido.getText(), jtnombre.getText(), jdcfechanac.getDate(), true );
         
+       
+        // (int dni, String apellido, String nombre, LocalDate fechaNac, boolean estado
+        
+        // Creamos Alumno (Objeto) el jdcfechanac JDateChooser(JCalendar) pasamos a LocalDate.
+        Alumno alu = new Alumno(Integer.parseInt(jtdocumento.getText()), jtapellido.getText(), jtnombre.getText(), jdcfechanac.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate() , jrestado.isSelected());
+        
+        System.out.println(alu);
+
+        // Creammos Alumno data (objeto)
         AlumnoData g = new AlumnoData();
+        
+        // Guardamos al SQL (objeto creado)
         
         g.guardarAlumno(alu);
         
         
+        
     }//GEN-LAST:event_jbguardarActionPerformed
+
+    private void jdcfechanacPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jdcfechanacPropertyChange
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jdcfechanacPropertyChange
+
+    private void jrestadoStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jrestadoStateChanged
+        // TODO add your handling code here:
+        
+        
+        
+    }//GEN-LAST:event_jrestadoStateChanged
+
+    private void jbsalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbsalirActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+        
+    }//GEN-LAST:event_jbsalirActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -228,4 +273,5 @@ public class FormularioAlumno extends javax.swing.JInternalFrame {
     private javax.swing.JTextField jtdocumento;
     private javax.swing.JTextField jtnombre;
     // End of variables declaration//GEN-END:variables
+
 }
