@@ -27,9 +27,10 @@ public class Pantalla extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        EscritorioPrincipal = new javax.swing.JDesktopPane();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
+        jmalumno = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         jMenuItem2 = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
@@ -41,12 +42,35 @@ public class Pantalla extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setIconImages(null);
 
+        javax.swing.GroupLayout EscritorioPrincipalLayout = new javax.swing.GroupLayout(EscritorioPrincipal);
+        EscritorioPrincipal.setLayout(EscritorioPrincipalLayout);
+        EscritorioPrincipalLayout.setHorizontalGroup(
+            EscritorioPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1012, Short.MAX_VALUE)
+        );
+        EscritorioPrincipalLayout.setVerticalGroup(
+            EscritorioPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 679, Short.MAX_VALUE)
+        );
+
+        jMenuBar1.setBackground(new java.awt.Color(102, 153, 255));
+
         jMenu1.setText("Alumno");
         jMenu1.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jMenu1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenu1ActionPerformed(evt);
+            }
+        });
 
-        jMenuItem1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        jMenuItem1.setText("Formulario de Alumno");
-        jMenu1.add(jMenuItem1);
+        jmalumno.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jmalumno.setText("Formulario de Alumno");
+        jmalumno.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmalumnoActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jmalumno);
 
         jMenuBar1.add(jMenu1);
 
@@ -60,13 +84,13 @@ public class Pantalla extends javax.swing.JFrame {
         jMenuBar1.add(jMenu2);
 
         jMenu3.setText("Administración");
-        jMenu3.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jMenu3.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
 
-        jMenuItem3.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jMenuItem3.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jMenuItem3.setText("Manejo de Inscripciones");
         jMenu3.add(jMenuItem3);
 
-        jMenuItem4.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jMenuItem4.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jMenuItem4.setText("Modificación de Notas");
         jMenu3.add(jMenuItem4);
 
@@ -86,15 +110,40 @@ public class Pantalla extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1024, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(EscritorioPrincipal)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 689, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(EscritorioPrincipal)
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jmalumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmalumnoActionPerformed
+        
+        // Remover la pantalla principal
+        EscritorioPrincipal.removeAll();
+        // Redibuja el escritorio principal
+        EscritorioPrincipal.repaint();
+        // Crear el objeto de la ventana fomulario alunmo(Clase)
+        FormularioAlumno fa = new FormularioAlumno();
+        // Hacer visible el objeto (ventana formulario)
+        fa.setVisible(true);
+        // Escritorio principal agregar el Objeto (ventana formilario)
+        EscritorioPrincipal.add(fa);
+        
+    }//GEN-LAST:event_jmalumnoActionPerformed
+
+    private void jMenu1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenu1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -132,15 +181,16 @@ public class Pantalla extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JDesktopPane EscritorioPrincipal;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenu jMenu5;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
+    private javax.swing.JMenuItem jmalumno;
     // End of variables declaration//GEN-END:variables
 }
