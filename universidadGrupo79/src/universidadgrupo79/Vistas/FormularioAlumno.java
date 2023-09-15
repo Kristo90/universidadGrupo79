@@ -114,6 +114,11 @@ public class FormularioAlumno extends javax.swing.JInternalFrame {
         jbuscar.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jbuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/buscar.png"))); // NOI18N
         jbuscar.setText("Buscar");
+        jbuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbuscarActionPerformed(evt);
+            }
+        });
 
         jbeliminar.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jbeliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/eliminar.png"))); // NOI18N
@@ -306,6 +311,15 @@ public class FormularioAlumno extends javax.swing.JInternalFrame {
         jteliminar.setText("");
         
     }//GEN-LAST:event_jbnuevoActionPerformed
+
+    private void jbuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbuscarActionPerformed
+        // TODO add your handling code here:
+        
+        AlumnoData bus = new AlumnoData();
+        
+        bus.buscarAlumno(Integer.parseInt(jtdocumento.getText()));
+        System.out.println(Integer.parseInt(jtdocumento.getText()));
+    }//GEN-LAST:event_jbuscarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
