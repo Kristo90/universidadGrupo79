@@ -105,6 +105,11 @@ public class FormularioAlumno extends javax.swing.JInternalFrame {
         jbnuevo.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jbnuevo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/nuevo.png"))); // NOI18N
         jbnuevo.setText("Nuevo");
+        jbnuevo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbnuevoActionPerformed(evt);
+            }
+        });
 
         jbuscar.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jbuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/buscar.png"))); // NOI18N
@@ -290,6 +295,17 @@ public class FormularioAlumno extends javax.swing.JInternalFrame {
         
         
     }//GEN-LAST:event_jbeliminarActionPerformed
+
+    private void jbnuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbnuevoActionPerformed
+        // TODO add your handling code here:
+        jtnombre.setText("");
+        jtapellido.setText("");
+        jtdocumento.setText("");
+        jdcfechanac.setDate(null);
+        jrestado.setSelected(false);
+        jteliminar.setText("");
+        
+    }//GEN-LAST:event_jbnuevoActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
