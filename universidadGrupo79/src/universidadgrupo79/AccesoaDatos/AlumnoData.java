@@ -42,8 +42,9 @@ public class AlumnoData {
             
             while (rs.next()) {
                 
-                alu.setIdAlumno(1);
+                alu.setIdAlumno(rs.getInt(1));
                 JOptionPane.showMessageDialog(null, "Se agrego correctamente");
+                System.out.println(alu.getIdAlumno());
             }
             ps.close();
             
