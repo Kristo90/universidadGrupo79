@@ -65,10 +65,11 @@
                                       <Component id="jLabel7" alignment="0" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jtdocumento" min="-2" pref="200" max="-2" attributes="0"/>
-                                      <Component id="jdcfechanac" alignment="1" min="-2" pref="200" max="-2" attributes="0"/>
-                                      <Component id="jtapellido" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                      <Component id="buscaNac" max="32767" attributes="0"/>
+                                      <Component id="jtdocumento" pref="200" max="32767" attributes="0"/>
+                                      <Component id="jdcfechanac" alignment="0" pref="200" max="32767" attributes="0"/>
+                                      <Component id="jtapellido" alignment="0" pref="200" max="32767" attributes="0"/>
                                       <Component id="jrestado" alignment="0" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace min="-2" pref="58" max="-2" attributes="0"/>
@@ -109,10 +110,12 @@
                   <Component id="jbuscar" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="1" attributes="0">
-                  <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
-                  <Component id="jdcfechanac" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="buscaNac" min="-2" pref="29" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="jLabel5" alignment="1" min="-2" max="-2" attributes="0"/>
+                  <Component id="jdcfechanac" alignment="0" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
@@ -125,7 +128,7 @@
                   <Component id="jteliminar" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jbeliminar" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="36" max="32767" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jbnuevo" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jbguardar" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -300,6 +303,8 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="jteliminar">
+    </Component>
+    <Component class="javax.swing.JLabel" name="buscaNac">
     </Component>
   </SubComponents>
 </Form>

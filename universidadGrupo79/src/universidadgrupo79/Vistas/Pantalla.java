@@ -31,8 +31,8 @@ public class Pantalla extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jmalumno = new javax.swing.JMenuItem();
-        jMenu2 = new javax.swing.JMenu();
-        jMenuItem2 = new javax.swing.JMenuItem();
+        jmMaterias = new javax.swing.JMenu();
+        jMFMaterias = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
         jMenuItem3 = new javax.swing.JMenuItem();
         jMenuItem4 = new javax.swing.JMenuItem();
@@ -74,14 +74,24 @@ public class Pantalla extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu1);
 
-        jMenu2.setText("Materia");
-        jMenu2.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jmMaterias.setText("Materia");
+        jmMaterias.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jmMaterias.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmMateriasActionPerformed(evt);
+            }
+        });
 
-        jMenuItem2.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        jMenuItem2.setText("Formulario de Materia");
-        jMenu2.add(jMenuItem2);
+        jMFMaterias.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jMFMaterias.setText("Formulario de Materia");
+        jMFMaterias.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMFMateriasActionPerformed(evt);
+            }
+        });
+        jmMaterias.add(jMFMaterias);
 
-        jMenuBar1.add(jMenu2);
+        jMenuBar1.add(jmMaterias);
 
         jMenu3.setText("Administración");
         jMenu3.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
@@ -136,6 +146,7 @@ public class Pantalla extends javax.swing.JFrame {
         FormularioAlumno fa = new FormularioAlumno();
         // Hacer visible el objeto (ventana formulario)
         fa.setVisible(true);
+        
         // Escritorio principal agregar el Objeto (ventana formilario)
         EscritorioPrincipal.add(fa);
         
@@ -144,6 +155,36 @@ public class Pantalla extends javax.swing.JFrame {
     private void jMenu1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jMenu1ActionPerformed
+
+    private void jmMateriasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmMateriasActionPerformed
+        // TODO add your handling code here:
+          // Remover la pantalla principal
+        EscritorioPrincipal.removeAll();
+        // Redibuja el escritorio principal
+        EscritorioPrincipal.repaint();
+        // Crear el objeto de la ventana fomulario alunmo(Clase)
+        FormularioMaterias fm = new FormularioMaterias();
+              
+        // Escritorio principal agregar el Objeto (ventana formilario)
+        EscritorioPrincipal.add(fm);
+        fm.setVisible(true);
+        
+    }//GEN-LAST:event_jmMateriasActionPerformed
+
+    private void jMFMateriasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMFMateriasActionPerformed
+        // TODO add your handling code here:
+                // TODO add your handling code here:
+          // Remover la pantalla principal
+        EscritorioPrincipal.removeAll();
+        // Redibuja el escritorio principal
+        EscritorioPrincipal.repaint();
+        // Crear el objeto de la ventana fomulario alunmo(Clase)
+        FormularioMaterias fm = new FormularioMaterias();
+              
+        // Escritorio principal agregar el Objeto (ventana formilario)
+        EscritorioPrincipal.add(fm);
+        fm.setVisible(true);
+    }//GEN-LAST:event_jMFMateriasActionPerformed
 
     /**
      * @param args the command line arguments
@@ -182,15 +223,15 @@ public class Pantalla extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDesktopPane EscritorioPrincipal;
+    private javax.swing.JMenuItem jMFMaterias;
     private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenu jMenu5;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
+    private javax.swing.JMenu jmMaterias;
     private javax.swing.JMenuItem jmalumno;
     // End of variables declaration//GEN-END:variables
 }

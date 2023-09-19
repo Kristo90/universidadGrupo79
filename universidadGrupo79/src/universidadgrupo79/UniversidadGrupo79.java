@@ -17,6 +17,7 @@ public class UniversidadGrupo79 {
         // TODO code application logic here
         
         Connection con = Conexion.getConexion();
+        
     }
     
 }
