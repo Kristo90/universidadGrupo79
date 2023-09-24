@@ -34,7 +34,7 @@ public class Pantalla extends javax.swing.JFrame {
         jmMaterias = new javax.swing.JMenu();
         jMFMaterias = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
-        jMenuItem3 = new javax.swing.JMenuItem();
+        jMinscripcion = new javax.swing.JMenuItem();
         jMenuItem4 = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
         jMenu5 = new javax.swing.JMenu();
@@ -96,9 +96,14 @@ public class Pantalla extends javax.swing.JFrame {
         jMenu3.setText("Administración");
         jMenu3.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
 
-        jMenuItem3.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        jMenuItem3.setText("Manejo de Inscripciones");
-        jMenu3.add(jMenuItem3);
+        jMinscripcion.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jMinscripcion.setText("Manejo de Inscripciones");
+        jMinscripcion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMinscripcionActionPerformed(evt);
+            }
+        });
+        jMenu3.add(jMinscripcion);
 
         jMenuItem4.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jMenuItem4.setText("Modificación de Notas");
@@ -172,19 +177,32 @@ public class Pantalla extends javax.swing.JFrame {
     }//GEN-LAST:event_jmMateriasActionPerformed
 
     private void jMFMateriasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMFMateriasActionPerformed
-        // TODO add your handling code here:
-                // TODO add your handling code here:
-          // Remover la pantalla principal
+                  // Remover la pantalla principal
         EscritorioPrincipal.removeAll();
         // Redibuja el escritorio principal
         EscritorioPrincipal.repaint();
         // Crear el objeto de la ventana fomulario alunmo(Clase)
         FormularioMaterias fm = new FormularioMaterias();
-              
+            
         // Escritorio principal agregar el Objeto (ventana formilario)
         EscritorioPrincipal.add(fm);
         fm.setVisible(true);
     }//GEN-LAST:event_jMFMateriasActionPerformed
+
+    private void jMinscripcionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMinscripcionActionPerformed
+        
+          // Remover la pantalla principal
+        EscritorioPrincipal.removeAll();
+        // Redibuja el escritorio principal
+        EscritorioPrincipal.repaint();
+        // Crear el objeto de la ventana fomulario alunmo(Clase)
+        FormularioInscripcion fi = new FormularioInscripcion();
+          
+        // Escritorio principal agregar el Objeto (ventana formilario)
+        EscritorioPrincipal.add(fi);
+        fi.setVisible(true);
+                                  
+    }//GEN-LAST:event_jMinscripcionActionPerformed
 
     /**
      * @param args the command line arguments
@@ -229,8 +247,8 @@ public class Pantalla extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenu jMenu5;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
+    private javax.swing.JMenuItem jMinscripcion;
     private javax.swing.JMenu jmMaterias;
     private javax.swing.JMenuItem jmalumno;
     // End of variables declaration//GEN-END:variables

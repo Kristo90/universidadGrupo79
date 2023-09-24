@@ -1,20 +1,19 @@
 package universidadgrupo79.AccesoaDatos;
 
+import static com.sun.org.apache.xalan.internal.xsltc.compiler.util.Type.Int;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import org.mariadb.jdbc.Statement;
 import universidadgrupo79.Entidades.Alumno;
 
-/**
- *
- * @author kristo
- */
 public class AlumnoData {
 
     private Connection con = null;
@@ -94,17 +93,39 @@ public class AlumnoData {
                 alumno.setFechaNac(rs.getDate("fechaNacimiento").toLocalDate());
                 alumno.setEstado(true);
 
-
             } else {
                 JOptionPane.showMessageDialog(null, "No existe el alumno");
                 ps.close();
             }
 
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla Alumno "+ex.getMessage());
+            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla Alumno " + ex.getMessage());
 
         }
 
         return alumno;
     }
+
+    public Alumno listarAlumno() {
+
+        try {
+            String sql = " nombre, apellido FROM alumno WHERE estado=1";
+
+            PreparedStatement ps = con.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+                String nombre = rs.getString("nombre");
+                String apellido = rs.getString("apellido");
+                int dni = rs.getInt("dni");
+                Alumno alu = new Alumno(nombre, apellido, dni);
+                return alu;
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(AlumnoData.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+
 }
