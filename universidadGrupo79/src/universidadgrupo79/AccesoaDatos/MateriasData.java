@@ -94,7 +94,7 @@ public class MateriasData {
             }
 
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla Materiamat "+ex.getMessage());
+            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla Materia");
 
         }
 

@@ -1,4 +1,3 @@
-
 package universidadgrupo79.Entidades;
 
 import java.time.LocalDate;
@@ -8,7 +7,7 @@ import java.time.LocalDate;
  * @author kristo
  */
 public class Alumno {
-    
+
     private int idAlumno;
     private int dni;
     private String apellido;
@@ -35,12 +34,15 @@ public class Alumno {
         this.fechaNac = fechaNac;
         this.estado = estado;
     }
- public Alumno(String apellido, String nombre, int dni) {
+
+    public Alumno(int idAlumno, String apellido, String nombre, int dni) {
+        this.idAlumno = idAlumno;
         this.dni = dni;
         this.apellido = apellido;
         this.nombre = nombre;
-        
+
     }
+
     public int getIdAlumno() {
         return idAlumno;
     }
@@ -91,7 +93,7 @@ public class Alumno {
 
     @Override
     public String toString() {
-        return   + dni + ", " + apellido + ", " + nombre ;
+        return idAlumno + ", " + dni + ", " + apellido + ", " + nombre;
     }
-    
+
 }

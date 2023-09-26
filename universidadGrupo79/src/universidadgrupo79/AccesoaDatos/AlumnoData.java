@@ -86,7 +86,7 @@ public class AlumnoData {
 
             if (rs.next()) {
 
-                alumno.setIdAlumno(rs.getInt("idAlumno"));
+                alumno.setIdAlumno(rs.getInt(1));
                 alumno.setDni(rs.getInt("dni"));
                 alumno.setApellido(rs.getString("apellido"));
                 alumno.setNombre(rs.getString("nombre"));
@@ -106,26 +106,27 @@ public class AlumnoData {
         return alumno;
     }
 
-    public Alumno listarAlumno() {
-
+    public List<Alumno> listarAlumno() {
+ArrayList<Alumno> alu=new ArrayList<>();
         try {
-            String sql = " nombre, apellido FROM alumno WHERE estado=1";
+            String sql = " SELECT idAlumno,nombre, apellido, dni FROM alumno WHERE estado=1";
 
             PreparedStatement ps = con.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
 
             while (rs.next()) {
+                int idAlumno=rs.getInt(1);
                 String nombre = rs.getString("nombre");
                 String apellido = rs.getString("apellido");
                 int dni = rs.getInt("dni");
-                Alumno alu = new Alumno(nombre, apellido, dni);
-                return alu;
+                Alumno alum = new Alumno(idAlumno,nombre, apellido, dni);
+                alu.add(alum);
             }
 
         } catch (SQLException ex) {
             Logger.getLogger(AlumnoData.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return null;
+        return alu;
     }
 
 }

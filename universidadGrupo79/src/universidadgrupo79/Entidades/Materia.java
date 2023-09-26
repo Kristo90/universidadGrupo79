@@ -62,7 +62,9 @@ public class Materia {
 
     @Override
     public String toString() {
-        return "Materia{" + "idMateria=" + idMateria + ", nombre=" + nombre + ", anioMateria=" + anioMateria + ", estado=" + estado + '}';
+       // idInscripcion + " " + alumno.getApellido() + ", " + alumno.getNombre() + ", " + materia.getNombre();
+        String inscript ="idMateria+";
+     return inscript;
     }
         
 }

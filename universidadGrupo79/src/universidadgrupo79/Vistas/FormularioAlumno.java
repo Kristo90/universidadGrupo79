@@ -9,7 +9,6 @@ import java.sql.Date;
 import universidadgrupo79.AccesoaDatos.AlumnoData;
 import universidadgrupo79.Entidades.Alumno;
 import java.*;
-import java.time.LocalDate;
 import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 
@@ -45,7 +44,6 @@ public class FormularioAlumno extends javax.swing.JInternalFrame {
         jtnombre = new javax.swing.JTextField();
         jtapellido = new javax.swing.JTextField();
         jtdocumento = new javax.swing.JTextField();
-        jdcfechanac = new com.toedter.calendar.JDateChooser();
         jrestado = new javax.swing.JRadioButton();
         jbnuevo = new javax.swing.JButton();
         jbuscar = new javax.swing.JButton();
@@ -54,7 +52,7 @@ public class FormularioAlumno extends javax.swing.JInternalFrame {
         jbsalir = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
         jteliminar = new javax.swing.JTextField();
-        buscaNac = new javax.swing.JLabel();
+        jdcfechanac = new com.toedter.calendar.JDateChooser();
 
         setPreferredSize(new java.awt.Dimension(641, 550));
 
@@ -87,12 +85,6 @@ public class FormularioAlumno extends javax.swing.JInternalFrame {
         jtapellido.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jtapellidoActionPerformed(evt);
-            }
-        });
-
-        jdcfechanac.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
-            public void propertyChange(java.beans.PropertyChangeEvent evt) {
-                jdcfechanacPropertyChange(evt);
             }
         });
 
@@ -192,11 +184,10 @@ public class FormularioAlumno extends javax.swing.JInternalFrame {
                                         .addComponent(jLabel7))
                                     .addGap(18, 18, 18)
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(buscaNac, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(jtdocumento, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
-                                        .addComponent(jdcfechanac, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
                                         .addComponent(jtapellido, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
-                                        .addComponent(jrestado))
+                                        .addComponent(jrestado)
+                                        .addComponent(jdcfechanac, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                     .addGap(58, 58, 58)
                                     .addComponent(jbuscar))))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
@@ -224,11 +215,9 @@ public class FormularioAlumno extends javax.swing.JInternalFrame {
                     .addComponent(jtdocumento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jbuscar)
                     .addComponent(jLabel4))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(buscaNac, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(2, 2, 2)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGap(30, 30, 30)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel5)
                     .addComponent(jdcfechanac, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(28, 28, 28)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -309,7 +298,7 @@ public class FormularioAlumno extends javax.swing.JInternalFrame {
         jdcfechanac.setDate(null);
         jrestado.setSelected(false);
         jteliminar.setText("");
-        buscaNac.setText("");
+        //buscaNac.setText("");
     }//GEN-LAST:event_jbnuevoActionPerformed
 
     private void jbuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbuscarActionPerformed
@@ -323,14 +312,14 @@ public class FormularioAlumno extends javax.swing.JInternalFrame {
         jtapellido.setText(alu.getApellido());
         jteliminar.setText(Integer.toString(alu.getIdAlumno()));
         jrestado.setSelected(true);
-        buscaNac.setText("Fecha de Nacimiento " + alu.getFechaNac().format(DateTimeFormatter.ISO_DATE));
+        jdcfechanac.setDate(Date.valueOf(alu.getFechaNac()));
+       // buscaNac.setText("Fecha de Nacimiento " + alu.getFechaNac().format(DateTimeFormatter.ISO_DATE));
 
 
     }//GEN-LAST:event_jbuscarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel buscaNac;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

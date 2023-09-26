@@ -38,6 +38,7 @@ public class Pantalla extends javax.swing.JFrame {
         jMenuItem4 = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
         jMenu5 = new javax.swing.JMenu();
+        jMsalir = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setIconImages(null);
@@ -117,6 +118,15 @@ public class Pantalla extends javax.swing.JFrame {
 
         jMenu5.setText("Salir");
         jMenu5.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+
+        jMsalir.setText("Salir");
+        jMsalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMsalirActionPerformed(evt);
+            }
+        });
+        jMenu5.add(jMsalir);
+
         jMenuBar1.add(jMenu5);
 
         setJMenuBar(jMenuBar1);
@@ -204,6 +214,11 @@ public class Pantalla extends javax.swing.JFrame {
                                   
     }//GEN-LAST:event_jMinscripcionActionPerformed
 
+    private void jMsalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMsalirActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+    }//GEN-LAST:event_jMsalirActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -249,6 +264,7 @@ public class Pantalla extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMinscripcion;
+    private javax.swing.JMenuItem jMsalir;
     private javax.swing.JMenu jmMaterias;
     private javax.swing.JMenuItem jmalumno;
     // End of variables declaration//GEN-END:variables
