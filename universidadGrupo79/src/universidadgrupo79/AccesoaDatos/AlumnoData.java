@@ -106,8 +106,8 @@ public class AlumnoData {
         return alumno;
     }
 
-    public ArrayList<Alumno> listarAlumno() {
-        ArrayList<Alumno> alu = new ArrayList<>();
+    public List<Alumno> listarAlumno() {
+ArrayList<Alumno> alu=new ArrayList<>();
         try {
             String sql = " SELECT idAlumno,nombre, apellido, dni FROM alumno WHERE estado=1";
 
@@ -115,11 +115,11 @@ public class AlumnoData {
             ResultSet rs = ps.executeQuery();
 
             while (rs.next()) {
-                int idAlumno = rs.getInt(1);
+                int idAlumno=rs.getInt(1);
                 String nombre = rs.getString("nombre");
                 String apellido = rs.getString("apellido");
                 int dni = rs.getInt("dni");
-                Alumno alum = new Alumno(idAlumno, nombre, apellido, dni);
+                Alumno alum = new Alumno(idAlumno,nombre, apellido, dni);
                 alu.add(alum);
             }
 

@@ -59,11 +59,18 @@ public class Inscripcion {
     public void setNote(double note) {
         this.note = note;
     }
+    
+
+//    @Override
+//    public String toString() {
+//       String insc=idInscripcion + ", " + note + ", " + alumno.getIdAlumno() + ", " + materia.getIdMateria();
+//       return insc;
+//    }
 
     @Override
     public String toString() {
-       String insc=idInscripcion + " " + alumno.getApellido() + ", " + alumno.getNombre() + ", " + materia.getNombre();
-       return insc;
+        String insc= materia.getIdMateria() +" "+ alumno.getIdAlumno()+ ", "+materia.getIdMateria();
+        return insc;
     }
     
 }

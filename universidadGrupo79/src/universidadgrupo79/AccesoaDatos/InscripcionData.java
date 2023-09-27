@@ -34,7 +34,7 @@ public class InscripcionData {
 
             while (rs.next()) {
                 Materia mat = new Materia();
-                mat.setIdMateria(rs.getInt("idMateria"));
+                mat.setIdMateria(rs.getInt(1));
                 mat.setNombre(rs.getString("nombre"));
                 mat.setAnioMateria(rs.getInt("anio"));
                 matnc.add(mat);
@@ -48,61 +48,99 @@ public class InscripcionData {
         return matnc;
 
     }
-    
-   public List<Materia> listarMateriasIns(int id) {
+    public ArrayList<Materia> listarMateriaIns(int id) {
+        ArrayList<Materia> matnc = new ArrayList<>();
 
-       ArrayList<Materia> materias = new ArrayList<>();
-        MateriasData md = new MateriasData();
-
-        String sql = "SELECT idMateria FROM inscripcion WHERE idAlumno= ?";
         try {
+            String sql = "SELECT idMateria, nombre, anio FROM materia WHERE estado = 1  AND idMateria  IN (SELECT idMateria FROM inscripcion WHERE idAlumno = ?)";
+
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setInt(1, id);
             ResultSet rs = ps.executeQuery();
 
             while (rs.next()) {
-                Materia materia = md.buscarMateria(rs.getInt("idMateria"));
-                materias.add(materia);
+                Materia mat = new Materia();
+                mat.setIdMateria(rs.getInt(1));
+                mat.setNombre(rs.getString("nombre"));
+                mat.setAnioMateria(rs.getInt("anio"));
+                matnc.add(mat);
+
             }
-            ps.close();
 
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Error al acceder a la tabla Inscripcion");
         }
-        return materias;
-   
-    }
-public void Inscribir(Inscripcion insc) {
 
-        String sql = "INSERT INTO inscripcion (nota, idAlumno, idMateria)"
+        return matnc;
+
+    }
+//   public List<Materia> listarMateriasIns(int id) {
+//
+//       ArrayList<Materia> materias = new ArrayList<>();
+//        MateriasData md = new MateriasData();
+//
+//        String sql = "SELECT * FROM inscripcion WHERE idAlumno= ?";
+//        try {
+//            PreparedStatement ps = con.prepareStatement(sql);
+//            ps.setInt(1, id);
+//            ResultSet rs = ps.executeQuery();
+//
+//            while (rs.next()) {
+//                Materia materia = md.buscarMateria(rs.getInt(4));
+//                materias.add(materia);
+//            }
+//            ps.close();
+//
+//        } catch (SQLException ex) {
+//            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla Inscripcion");
+//        }
+//        return materias;
+//   
+//    }
+public void guardarInscripcion(Inscripcion inscrip) {
+String sql = "INSERT INTO inscripcion( nota, idAlumno, idMateria)"
                 + "VALUES (?,?,?)";
 
         try {
             PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 
-           ps.setDouble(1, insc.getNote());
-           ps.setInt(2,insc.getAlumno().getIdAlumno());
-           ps.setInt(3,insc.getMateria().getIdMateria());
-           
-
+            ps.setDouble(1, inscrip.getNote());
+            ps.setInt(2, inscrip.getAlumno().getIdAlumno());
+            ps.setInt(3, inscrip.getMateria().getIdMateria());
             ps.executeUpdate();
             ResultSet rs = ps.getGeneratedKeys();
 
-             if (rs.next()) {
+            if (rs.next()) {
 
-                insc.setIdInscripcion(rs.getInt(1));
+                inscrip.setIdInscripcion(rs.getInt(1));
 
-
-                
-
-                JOptionPane.showMessageDialog(null, "Inscripcion realizada con exito");
+                JOptionPane.showMessageDialog(null, "Inscripción exitosa \n"+   inscrip.getMateria().getNombre().toUpperCase());
 
             }
 
             ps.close();
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla inscripcion");
+            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla Inscripcion");
+            
+        }
 
+    }
+public void borrarInscripcionMateriaAlumno(int idAlumno, int idMateria){
+    String sql = "DELETE FROM inscripcion WHERE idMateria= ? AND idAlumno= ? ";
+        try {
+            PreparedStatement ps = con.prepareStatement(sql);
+
+            ps.setInt(1, idMateria);
+            ps.setInt(2, idAlumno);
+            ps.executeUpdate();
+            int borrado = ps.executeUpdate();
+
+            //if (borrado > 0) {
+                
+                JOptionPane.showMessageDialog(null, " La inscripción ha sido eliminada");
+            //}
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla Inscripción " );
         }
 
     }

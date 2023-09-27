@@ -5,6 +5,10 @@
  */
 package universidadgrupo79.Vistas;
 
+import java.util.ArrayList;
+import universidadgrupo79.AccesoaDatos.AlumnoData;
+import universidadgrupo79.Entidades.Alumno;
+
 /**
  *
  * @author krist
@@ -42,7 +46,7 @@ public class FormularioNotas extends javax.swing.JInternalFrame {
         jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jLabel2.setText("Seleccione un alumno :");
 
-        jcbSelec.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jcbSelec.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "< Seleccionar >" }));
 
         jtNotas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -58,7 +62,14 @@ public class FormularioNotas extends javax.swing.JInternalFrame {
 
         jbGuardar.setText("Guardar");
 
+        jbSalir.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jbSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/Salir.png"))); // NOI18N
         jbSalir.setText("Salir");
+        jbSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbSalirActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -107,11 +118,16 @@ public class FormularioNotas extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jbGuardar)
                     .addComponent(jbSalir))
-                .addContainerGap(30, Short.MAX_VALUE))
+                .addContainerGap(14, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jbSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSalirActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+    }//GEN-LAST:event_jbSalirActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -125,3 +141,4 @@ public class FormularioNotas extends javax.swing.JInternalFrame {
     private javax.swing.JTable jtNotas;
     // End of variables declaration//GEN-END:variables
 }
+        

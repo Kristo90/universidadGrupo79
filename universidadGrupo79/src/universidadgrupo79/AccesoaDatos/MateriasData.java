@@ -21,7 +21,7 @@ public class MateriasData {
     }
 
     public void guardarMateria(Materia mat) {
-//        INSERT INTO `materia`(`idMateria`, `nombre`, `anio`, `estado`) VALUES ('[value-1]','[value-2]','[value-3]','[value-4]')
+
         String sql = "INSERT INTO materia( nombre, anio, estado)"
                 + " VALUES (?,?,?)";
         try {
@@ -68,9 +68,9 @@ public class MateriasData {
    public Materia buscarMateria(int codigo) {
         Materia mat = new Materia();
         
-        // SELECT `nombre`, `anio`, `estado` FROM `materia` WHERE 1
+        // SELECT idMateria`nombre`, `anio`, `estado` FROM `materia` WHERE 1
 
-        String sql = "SELECT nombre,anio,estado FROM materia WHERE idMateria = ? AND estado = 1;";
+        String sql = "SELECT idMateria,nombre,anio,estado FROM materia WHERE idMateria = ? AND estado = 1;";
 
         try {
 
@@ -82,7 +82,7 @@ public class MateriasData {
 
             if (rs.next()) {
 
-                
+                mat.setIdMateria(rs.getInt(1));
                 mat.setNombre(rs.getString("nombre"));
                 mat.setAnioMateria(rs.getInt("anio"));
                 mat.setEstado(true);

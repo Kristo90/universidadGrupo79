@@ -1,4 +1,3 @@
-
 package universidadgrupo79.Entidades;
 
 /**
@@ -6,7 +5,7 @@ package universidadgrupo79.Entidades;
  * @author kristo
  */
 public class Materia {
-    
+
     private int idMateria;
     private String nombre;
     private int anioMateria;
@@ -26,6 +25,17 @@ public class Materia {
         this.nombre = nombre;
         this.anioMateria = anioMateria;
         this.estado = estado;
+        
+          
+
+   
+        
+    }
+
+    public Materia(int idMateria, String nombre, int anioMateria) {
+        this.idMateria = idMateria;
+        this.nombre = nombre;
+        this.anioMateria = anioMateria;
     }
 
     public int getIdMateria() {
@@ -62,9 +72,8 @@ public class Materia {
 
     @Override
     public String toString() {
-       // idInscripcion + " " + alumno.getApellido() + ", " + alumno.getNombre() + ", " + materia.getNombre();
-        String inscript ="idMateria+";
-     return inscript;
+       
+        return idMateria + ", " + nombre + ", " + anioMateria + ", " + nombre;
     }
-        
+
 }

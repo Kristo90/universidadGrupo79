@@ -67,9 +67,9 @@
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                       <Component id="jtdocumento" pref="200" max="32767" attributes="0"/>
+                                      <Component id="jdcfechanac" alignment="0" pref="200" max="32767" attributes="0"/>
                                       <Component id="jtapellido" alignment="0" pref="200" max="32767" attributes="0"/>
                                       <Component id="jrestado" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jdcfechanac" max="32767" attributes="0"/>
                                   </Group>
                                   <EmptySpace min="-2" pref="58" max="-2" attributes="0"/>
                                   <Component id="jbuscar" min="-2" max="-2" attributes="0"/>
@@ -109,10 +109,10 @@
                   <Component id="jbuscar" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="1" attributes="0">
-                  <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
-                  <Component id="jdcfechanac" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="jLabel5" alignment="1" min="-2" max="-2" attributes="0"/>
+                  <Component id="jdcfechanac" alignment="0" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
@@ -205,6 +205,11 @@
     </Component>
     <Component class="javax.swing.JTextField" name="jtdocumento">
     </Component>
+    <Component class="com.toedter.calendar.JDateChooser" name="jdcfechanac">
+      <Events>
+        <EventHandler event="propertyChange" listener="java.beans.PropertyChangeListener" parameters="java.beans.PropertyChangeEvent" handler="jdcfechanacPropertyChange"/>
+      </Events>
+    </Component>
     <Component class="javax.swing.JRadioButton" name="jrestado">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -295,8 +300,6 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="jteliminar">
-    </Component>
-    <Component class="com.toedter.calendar.JDateChooser" name="jdcfechanac">
     </Component>
   </SubComponents>
 </Form>
