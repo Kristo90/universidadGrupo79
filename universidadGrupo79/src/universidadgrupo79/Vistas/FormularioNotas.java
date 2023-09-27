@@ -6,8 +6,12 @@
 package universidadgrupo79.Vistas;
 
 import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
 import universidadgrupo79.AccesoaDatos.AlumnoData;
+import universidadgrupo79.AccesoaDatos.InscripcionData;
 import universidadgrupo79.Entidades.Alumno;
+import universidadgrupo79.Entidades.Inscripcion;
+import universidadgrupo79.Entidades.Materia;
 
 /**
  *
@@ -15,11 +19,20 @@ import universidadgrupo79.Entidades.Alumno;
  */
 public class FormularioNotas extends javax.swing.JInternalFrame {
 
+    private DefaultTableModel tablaNota = new DefaultTableModel() {
+
+        public boolean isCellEditable(int fila, int columna) {
+            return false;
+        }
+    };
+
     /**
      * Creates new form FormularioNotas
      */
     public FormularioNotas() {
         initComponents();
+        cargaCombo();
+        armarCabecera();
     }
 
     /**
@@ -46,7 +59,11 @@ public class FormularioNotas extends javax.swing.JInternalFrame {
         jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jLabel2.setText("Seleccione un alumno :");
 
-        jcbSelec.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "< Seleccionar >" }));
+        jcbSelec.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jcbSelecMouseClicked(evt);
+            }
+        });
 
         jtNotas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -63,7 +80,6 @@ public class FormularioNotas extends javax.swing.JInternalFrame {
         jbGuardar.setText("Guardar");
 
         jbSalir.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        jbSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/Salir.png"))); // NOI18N
         jbSalir.setText("Salir");
         jbSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -118,7 +134,7 @@ public class FormularioNotas extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jbGuardar)
                     .addComponent(jbSalir))
-                .addContainerGap(14, Short.MAX_VALUE))
+                .addContainerGap(29, Short.MAX_VALUE))
         );
 
         pack();
@@ -129,6 +145,22 @@ public class FormularioNotas extends javax.swing.JInternalFrame {
         this.dispose();
     }//GEN-LAST:event_jbSalirActionPerformed
 
+    private void jcbSelecMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jcbSelecMouseClicked
+        // TODO add your handling code here:
+        InscripcionData id = new InscripcionData();
+        Alumno alu = (Alumno) jcbSelec.getSelectedItem();
+        ArrayList<Inscripcion> insc = new ArrayList<>();
+        insc = id.listarMateriaIns(alu.getIdAlumno());
+
+        cargarTabla(insc);
+        
+        
+        
+        jcbSelec.getSelectedItem();
+        
+        
+    }//GEN-LAST:event_jcbSelecMouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
@@ -137,8 +169,36 @@ public class FormularioNotas extends javax.swing.JInternalFrame {
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JButton jbGuardar;
     private javax.swing.JButton jbSalir;
-    private javax.swing.JComboBox<String> jcbSelec;
+    private javax.swing.JComboBox<Alumno> jcbSelec;
     private javax.swing.JTable jtNotas;
     // End of variables declaration//GEN-END:variables
-}
+
+    private void cargaCombo() {
+        AlumnoData aluD = new AlumnoData();
+        ArrayList<Alumno> alu = new ArrayList<>();
+        alu = (ArrayList<Alumno>) aluD.listarAlumno();
+
+        for (Alumno alumno : alu) {
+            jcbSelec.addItem(alumno);
+        }
+    }
+     
+    private void armarCabecera() {
         
+        tablaNota.addColumn("Codigo");
+        tablaNota.addColumn("Nombre");
+        tablaNota.addColumn("Nota");
+        jtNotas.setModel(tablaNota);
+    }
+    
+    private void cargarTabla(ArrayList<Inscripcion> insc) {
+
+        for (Inscripcion inscripcion : insc) {
+            Object[] newinsc = {inscripcion.getMateria().getIdMateria(),inscripcion.getMateria().getNombre(),inscripcion.getNote()};
+            tablaNota.addRow(newinsc);
+
+        }
+    }  
+}
+
+

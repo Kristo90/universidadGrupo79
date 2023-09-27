@@ -35,7 +35,7 @@ public class Pantalla extends javax.swing.JFrame {
         jMFMaterias = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
         jMinscripcion = new javax.swing.JMenuItem();
-        jMenuItem4 = new javax.swing.JMenuItem();
+        jmNotas = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
         jMenu5 = new javax.swing.JMenu();
         jMsalir = new javax.swing.JMenuItem();
@@ -106,9 +106,14 @@ public class Pantalla extends javax.swing.JFrame {
         });
         jMenu3.add(jMinscripcion);
 
-        jMenuItem4.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        jMenuItem4.setText("Modificación de Notas");
-        jMenu3.add(jMenuItem4);
+        jmNotas.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jmNotas.setText("Modificación de Notas");
+        jmNotas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmNotasActionPerformed(evt);
+            }
+        });
+        jMenu3.add(jmNotas);
 
         jMenuBar1.add(jMenu3);
 
@@ -219,6 +224,20 @@ public class Pantalla extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_jMsalirActionPerformed
 
+    private void jmNotasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmNotasActionPerformed
+
+        EscritorioPrincipal.removeAll();
+      
+        EscritorioPrincipal.repaint();
+       
+        FormularioNotas notas = new FormularioNotas();
+          
+        
+        EscritorioPrincipal.add(notas);
+        notas.setVisible(true);
+        
+    }//GEN-LAST:event_jmNotasActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -262,10 +281,10 @@ public class Pantalla extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenu jMenu5;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMinscripcion;
     private javax.swing.JMenuItem jMsalir;
     private javax.swing.JMenu jmMaterias;
+    private javax.swing.JMenuItem jmNotas;
     private javax.swing.JMenuItem jmalumno;
     // End of variables declaration//GEN-END:variables
 }
