@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -100,4 +102,34 @@ public class MateriasData {
 
         return mat;
     }
+   public List<Materia> listarMaterias() {
+
+        ArrayList<Materia> materias = new ArrayList<>();
+
+        try {
+            String sql = "SELECT  * FROM materia WHERE  estado = 1 ";
+            PreparedStatement ps = con.prepareStatement(sql);
+
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+
+                Materia materia = new Materia();
+
+                materia.setIdMateria(rs.getInt("idMateria"));
+                materia.setNombre(rs.getString("nombre"));
+                materia.setAnioMateria(rs.getInt("anio"));
+                materia.setEstado(rs.getBoolean("estado"));
+                materias.add(materia);
+            }
+
+            ps.close();
+
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Error al conectarse a la tabla Materia");
+        }
+        return materias;
+
+    }
+
 }

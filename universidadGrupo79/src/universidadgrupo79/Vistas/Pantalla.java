@@ -37,6 +37,7 @@ public class Pantalla extends javax.swing.JFrame {
         jMinscripcion = new javax.swing.JMenuItem();
         jmNotas = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
+        jMaluxmat = new javax.swing.JMenuItem();
         jMenu5 = new javax.swing.JMenu();
         jMsalir = new javax.swing.JMenuItem();
 
@@ -119,6 +120,16 @@ public class Pantalla extends javax.swing.JFrame {
 
         jMenu4.setText("Consultas");
         jMenu4.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+
+        jMaluxmat.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jMaluxmat.setText("Consulta Alumnos por Materia...");
+        jMaluxmat.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMaluxmatActionPerformed(evt);
+            }
+        });
+        jMenu4.add(jMaluxmat);
+
         jMenuBar1.add(jMenu4);
 
         jMenu5.setText("Salir");
@@ -238,6 +249,20 @@ public class Pantalla extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jmNotasActionPerformed
 
+    private void jMaluxmatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMaluxmatActionPerformed
+        
+          // Remover la pantalla principal
+        EscritorioPrincipal.removeAll();
+        // Redibuja el escritorio principal
+        EscritorioPrincipal.repaint();
+        // Crear el objeto de la ventana fomulario alunmo(Clase)
+        FormularioAluxMateria faxm = new FormularioAluxMateria();
+              
+        // Escritorio principal agregar el Objeto (ventana formilario)
+        EscritorioPrincipal.add(faxm);
+        faxm.setVisible(true);
+    }//GEN-LAST:event_jMaluxmatActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -276,6 +301,7 @@ public class Pantalla extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDesktopPane EscritorioPrincipal;
     private javax.swing.JMenuItem jMFMaterias;
+    private javax.swing.JMenuItem jMaluxmat;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
