@@ -6,7 +6,7 @@
 -- Tiempo de generación: 11-09-2023 a las 23:41:06
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
-
+//esto es una prueba para ver si puedo hacer commit y push
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
